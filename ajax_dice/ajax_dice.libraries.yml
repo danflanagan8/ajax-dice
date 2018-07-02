@@ -1,0 +1,6 @@
+ajax-dice:
+  version: VERSION
+  js:
+    js/ajaxDice.js: {}
+  dependencies:
+    - core/drupal.ajax

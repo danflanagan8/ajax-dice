@@ -1,0 +1,21 @@
+<?php
+/**
+ * Implements hook_page_attachments
+ *
+ * Adds the log_module script to the page.
+ */
+function ajax_dice_page_attachments(array &$page) {
+  $page['#attached']['library'][] = 'ajax_dice/ajax-dice';
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ajax_dice_theme($existing, $type, $theme, $path) {
+  return [
+    'ajax_dice_block' => [
+      'variables' => [
+      ],
+    ],
+  ];
+}

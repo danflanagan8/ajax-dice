@@ -1,0 +1,6 @@
+name: Ajax Dice
+type: module
+description: 'Roll a die using the random.org API.'
+package: Random
+version: VERSION
+core: 8.x
