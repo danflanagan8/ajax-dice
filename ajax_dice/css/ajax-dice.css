@@ -1,0 +1,8 @@
+svg.ajax-dice {
+  max-width: 200px;
+  width: 100%;
+}
+
+circle {
+  fill: black;
+}

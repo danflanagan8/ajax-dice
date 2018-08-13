@@ -12,9 +12,12 @@ use Drupal\Core\Ajax\AjaxResponse;
  */
 class AjaxDiceController extends ControllerBase {
   public function rollCallback(){
+    $roll = $this->rollDice();
     $response = new AjaxResponse();
     $content = [
-      '#markup' => '<div id="ajax-dice-roll">' . $this->rollDice() . '</div>',
+      //'#markup' => $this->getSvg($roll),
+      '#type' => 'inline_template',
+      '#template' => $this->getSvg($roll),
     ];
     $response->addCommand( new InsertCommand('#ajax-dice-value', $content));
     return $response;
@@ -30,5 +33,56 @@ class AjaxDiceController extends ControllerBase {
       return NULL;
     }
     return $number;
+  }
+
+  protected function getSvg($num){
+    switch($num){
+      case 1:
+        return '<svg class="ajax-dice" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="194" height="194" stroke="black" fill="transparent" stroke-width="3"/>
+          <circle cx="100" cy="100" r="15" />
+        </svg>';
+      case 2:
+        return '<svg class="ajax-dice" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="194" height="194" stroke="black" fill="transparent" stroke-width="3"/>
+          <circle cx="70" cy="70" r="15"  />
+          <circle cx="130" cy="130" r="15"  />
+        </svg>';
+      case 3:
+        return '<svg class="ajax-dice" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="194" height="194" stroke="black" fill="transparent" stroke-width="3"/>
+          <circle cx="50" cy="50" r="15" />
+          <circle cx="100" cy="100" r="15" />
+          <circle cx="150" cy="150" r="15" />
+        </svg>';
+      case 4:
+        return '<svg class="ajax-dice" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="194" height="194" stroke="black" fill="transparent" stroke-width="3"/>
+          <circle cx="50" cy="50" r="15" />
+          <circle cx="150" cy="50" r="15" />
+          <circle cx="50" cy="150" r="15" />
+          <circle cx="150" cy="150" r="15" />
+        </svg>';
+      case 5:
+        return '<svg class="ajax-dice" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="194" height="194" stroke="black" fill="transparent" stroke-width="3"/>
+          <circle cx="50" cy="50" r="15" />
+          <circle cx="150" cy="50" r="15" />
+          <circle cx="100" cy="100" r="15" />
+          <circle cx="50" cy="150" r="15" />
+          <circle cx="150" cy="150" r="15" />
+        </svg>';
+      default:
+        return '<svg class="ajax-dice" viewBox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg">
+          <rect x="3" y="3" width="194" height="194" stroke="black" fill="transparent" stroke-width="3"/>
+          <circle cx="50" cy="50" r="15" />
+          <circle cx="50" cy="100" r="15" />
+          <circle cx="50" cy="150" r="15" />
+          <circle cx="150" cy="50" r="15" />
+          <circle cx="150" cy="100" r="15" />
+          <circle cx="150" cy="150" r="15" />
+        </svg>';
+
+    }
   }
 }

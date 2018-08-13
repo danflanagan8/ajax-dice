@@ -1,5 +1,8 @@
 ajax-dice:
   version: VERSION
+  css:
+    component:
+      css/ajax-dice.css: {}
   js:
     js/ajaxDice.js: {}
   dependencies:
