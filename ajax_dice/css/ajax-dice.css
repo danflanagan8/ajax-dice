@@ -9,6 +9,6 @@ svg.ajax-dice {
 
 .ajax-dice rect {
   stroke: black;
-  stroke-width: 10;
+  stroke-width: 3;
   fill: transparent;
 }
