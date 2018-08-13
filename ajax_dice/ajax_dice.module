@@ -17,5 +17,10 @@ function ajax_dice_theme($existing, $type, $theme, $path) {
       'variables' => [
       ],
     ],
+    'ajax_dice_roll' => [
+      'variables' => [
+        'roll' => NULL,
+      ],
+    ],
   ];
 }

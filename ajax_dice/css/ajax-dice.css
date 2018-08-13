@@ -1,8 +1,14 @@
+.ajax-dice-roll {
+  display: none;
+}
+
 svg.ajax-dice {
   max-width: 200px;
   width: 100%;
 }
 
-circle {
-  fill: black;
+.ajax-dice rect {
+  stroke: black;
+  stroke-width: 10;
+  fill: transparent;
 }
